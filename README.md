@@ -20,3 +20,12 @@ Do NOT run these scripts as root, they will prompt you for a password automatica
 - `wgs-setup.sh` creates a new network namespace that only has the WireGuard interface in it.
 - `wgs-route.sh` executes a command in the network namespace that was set up by `wg-setup.sh`.
 - `wgs-exclude.sh` simply uses firejail to add all interfaces to a sandbox _except_ the WireGuard interface. This seems to work well enough.
+
+## Example
+
+```
+$ ./wgs-route.sh curl ifconfig.me
+<VPN IP>
+$ curl ifconfig.me
+<real IP>
+```
